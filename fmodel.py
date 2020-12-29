@@ -24,14 +24,14 @@ labels = [row["a"] for row in data]
 X_training, X_testing, y_training, y_testing = train_test_split(
     evidence, labels, test_size=0.4)
 
-print(X_training)
-print(y_training)
+#print(X_training)
+#print(y_training)
 
 
 # Create a neural network
 model = tf.keras.models.Sequential()
 
-# Add a hidden layer with 8 units, with ReLU activation
+
 model.add(tf.keras.layers.Dense(3, input_shape=(2,)))
 #model.add(tf.keras.layers.Dropout(0.4))
 
@@ -50,7 +50,7 @@ history= model.fit(X_training, y_training, epochs=100)
 # Evaluate how well model performs
 model.evaluate(X_testing, y_testing, verbose=2)
 
-print(model.predict([2.45, 3.35, 2.65]))
+print(model.predict([2.35, 2.95]))
 
 plt.xlabel('Epoch Number')
 plt.ylabel('Loss Magnitude')
@@ -58,4 +58,4 @@ plt.plot(history.history['loss'])
 plt.show()
 
 
-print(model.predict([2.95]))
+
